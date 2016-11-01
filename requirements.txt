@@ -1,0 +1,38 @@
+Requirements - MVP
+
+Pages:
+Login Page
+	-sign up
+	-log in
+
+Sign Up
+	-first name
+	-last name
+	-email
+	-password
+	-age requirement (+18)
+
+Home Page
+	-sign out
+	-favorite movies
+	-watched movies
+	-search criteria (*genre*, director, year, lead actor(s)) 
+	-filtered movies (limit 20)
+
+Selected Movie
+	-title
+	-description
+	-year
+	-genre
+	-director
+	-actors
+	-rating
+	-movie thumbnail
+
+Account Settings
+	-first name
+	-last name
+	-email
+	-password
+	-age requirement (+18)
+
