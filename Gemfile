@@ -12,6 +12,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'jbuilder', '~> 2.0'
 
+gem 'devise'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
