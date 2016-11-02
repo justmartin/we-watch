@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'imdb', '~> 0.8.1'
+
 gem 'rails', '4.2.7.1'
 
 gem 'sqlite3'
