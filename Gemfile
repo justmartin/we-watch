@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'devise'
 
+gem 'themoviedb-api'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
@@ -21,6 +23,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 group :development, :test do
   
   gem 'byebug'
+
 end
 
 group :development do
@@ -28,5 +31,6 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   gem 'spring'
+
 end
 
