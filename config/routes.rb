@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   post '/search' => "search#perform"
 
+  get "/movies/:id" => "movie#show", as: "movie_show"
 
 end
