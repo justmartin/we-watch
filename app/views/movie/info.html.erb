@@ -1,2 +1,12 @@
 <h1>Movie#info</h1>
 <p>Find me in app/views/movie/info.html.erb</p>
+
+<%= form_tag("/search", method: "post") do %>
+	<%= label_tag("genre")%>
+	<%= text_field_tag(:genre) %>
+	<%= submit_tag ("submit") %>
+<% end %>
+
+<% if @title %>
+	<%= @title %>
+<% end %>
