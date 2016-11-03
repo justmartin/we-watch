@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   post "/genre" => "search#genre"
 
+  get "/movies/:id" => "movie#show", as: "movie_show"
 
 end

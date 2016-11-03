@@ -1,0 +1,21 @@
+<li>
+	<img src="https://image.tmdb.org/t/p/w300<%= @movie.poster_path %>">
+</li>
+<li>
+	<%= @title %>
+</li>
+<li>
+	<%= @overview %>
+</li>
+<li>
+  	<%= @release %>
+</li>
+<li>
+  	<%= @rating %>
+</li>
+<li>
+  	<%= @genres.map(&:name).join(", ") %>
+</li>
+<li>
+	<img src="https://image.tmdb.org/t/p/w300<%= @movie.poster_path %>">
+</li>

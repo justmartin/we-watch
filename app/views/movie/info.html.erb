@@ -2,11 +2,17 @@
 <p>Find me in app/views/movie/info.html.erb</p>
 
 <%= form_tag("/search", method: "post") do %>
-	<%= label_tag("genre")%>
-	<%= text_field_tag(:genre) %>
+	<%= label_tag("Title")%>
+	<%= text_field_tag(:title) %>
 	<%= submit_tag ("submit") %>
 <% end %>
 
-<% if @title %>
-	<%= @title %>
+<% if @response %>
+	<ul>
+		<% @response.results.each do |result| %>
+			<li>
+				<%= link_to result.title, movie_show_path(result.id) %>
+			</li>
+		<% end %>
+	</ul>
 <% end %>
