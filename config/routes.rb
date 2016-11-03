@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
   post '/search' => "search#perform"
 
+  post "/genre" => "search#genre"
+
 
 end

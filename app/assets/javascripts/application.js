@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+	var listItems = $(".movie-title")
+	$(".movies-list").empty()
+
+	$(".movies-list").append(listItems)
+})
