@@ -5,20 +5,8 @@ class SearchController < ApplicationController
 
   def action
   end
-  
-  def search_by_title 
-    Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
-  	render "movie/info"
 
-    @response = Tmdb::Search.movie(params[:title])
-  
-    render "movie/info"
-  end
-
-  def genre
-    Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
-    @movies = Tmdb::Genre.movies(params[:genre]).results
-
+  def options_for_genre
     @genres = [
       ["Action", 28], 
       ["Adventure", 12], 
@@ -40,6 +28,23 @@ class SearchController < ApplicationController
       ["War", 10752],
       ["Western", 37]
     ]
+  end
+  
+  def search_by_title 
+    Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
+
+    @titles = Tmdb::Search.movie(params[:title])
+
+    options_for_genre
+  
+    render "home/index"
+  end
+
+  def search_by_genre
+    Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
+    @movies = Tmdb::Genre.movies(params[:genre]).results
+
+    options_for_genre
 
     render "home/index"
   end
@@ -48,16 +53,20 @@ class SearchController < ApplicationController
     Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
 
     @cast = Tmdb::Search.person(params[:actor])
+
+    options_for_genre
   
-    render "movie/info"
+    render "home/index"
   end
 
   def search_by_director
     Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
 
     @director = Tmdb::Search.person(params[:director])
+
+    options_for_genre
   
-    render "movie/info"
+    render "home/index"
   end
 
 end

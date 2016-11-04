@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   get "/home" => "home#index"
 
-  get "/movie" => "movie#info"
-
   get "/search" => "search#action"
 
   post '/search-by-title' => "search#search_by_title"
@@ -14,7 +12,7 @@ Rails.application.routes.draw do
 
   post '/search-by-director' => "search#search_by_director"
 
-  post "/genre" => "search#genre"
+  post "/search-by-genre" => "search#search_by_genre"
 
   get "/movies/:id" => "movie#show", as: "movie_show"
 
