@@ -15,7 +15,7 @@ class MovieController < ApplicationController
 
   	@movie = Tmdb::Movie.detail(params[:id].to_i)
 
-  	@cast = Tmdb::Movie.cast(params[:id].to_s)
+  	@cast = Tmdb::Movie.cast(params[:id].to_s).first(10)
 
   	@director = Tmdb::Movie.director(params[:id].to_s)
 

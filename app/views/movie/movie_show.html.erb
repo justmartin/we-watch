@@ -1,7 +1,7 @@
 <h1>
 	<%= @title %>
 </h1>
-<ul>Top Cast: <%= @cast.first(10).map(&:name).join (", ") %></ul>
+<ul>Top Cast: <%= @cast.map(&:name).join (", ") %></ul>
 <ul>
 	Director: <%= @director.map(&:name).join (", ") %>
 </ul>
