@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-
+  
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  get "/home" => "home#index"
+  root "home#index"
 
   get "/search" => "search#action"
 
