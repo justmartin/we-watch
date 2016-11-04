@@ -22,12 +22,11 @@ $(document).ready(function() {
 
 	$(".movies-list").append(listItems)
 
-
-
-	$('#container').masonry({
-        itemSelector: '.item',
-        columnWidth: 70
+    $("#container").imagesLoaded(function() {
+	    $('#container').masonry({
+	        itemSelector: '.item',
+	        columnWidth: 70
+	    });
     });
-
 
 })
