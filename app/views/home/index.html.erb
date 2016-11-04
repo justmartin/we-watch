@@ -2,9 +2,7 @@
 
   <div class="col-md-12">
   	<%= form_tag("/genre") do %>
-  		<%= select_tag "genre", options_for_select(@genres) %>
-  		<br>
-  		<%= submit_tag "Search" %>
+  		<%= select_tag "genre", options_for_select(@genres), onchange: "this.form.submit()" %>
 		<% end %>
   </div>
 
