@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
+//= require masonry/jquery.masonry
 //= require_tree .
 
 $(document).ready(function() {
@@ -19,4 +21,13 @@ $(document).ready(function() {
 	$(".movies-list").empty()
 
 	$(".movies-list").append(listItems)
+
+
+
+	$('#container').masonry({
+        itemSelector: '.item',
+        columnWidth: 70
+    });
+
+
 })
