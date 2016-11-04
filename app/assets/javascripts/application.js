@@ -28,5 +28,4 @@ $(document).ready(function() {
 	        columnWidth: 70
 	    });
     });
-
 })
