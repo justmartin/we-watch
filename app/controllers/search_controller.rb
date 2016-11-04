@@ -8,7 +8,7 @@ class SearchController < ApplicationController
   
   def search_by_title 
     Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
-  	render "movie/info"
+  	
 
     @response = Tmdb::Search.movie(params[:title])
   
