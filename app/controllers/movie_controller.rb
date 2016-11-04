@@ -15,6 +15,10 @@ class MovieController < ApplicationController
 
   	@movie = Tmdb::Movie.detail(params[:id].to_i)
 
+  	@cast = Tmdb::Movie.cast(params[:id].to_s).first(10)
+
+  	@director = Tmdb::Movie.director(params[:id].to_s)
+
   	@title = @movie.title
 
   	@overview = @movie.overview
@@ -24,7 +28,7 @@ class MovieController < ApplicationController
   	@rating = @movie.vote_average
 
   	@genres = @movie.genres
-  	
+
   	render "movie/movie_show"
 
   end

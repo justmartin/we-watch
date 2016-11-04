@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   get "/search" => "search#action"
 
-  post '/search' => "search#perform"
+  post '/search-by-title' => "search#search_by_title"
+
+  post '/search-by-actor' => "search#search_by_actor"
+
+  post '/search-by-director' => "search#search_by_director"
 
   get "/movies/:id" => "movie#show", as: "movie_show"
 

@@ -1,21 +1,22 @@
-<li>
-	<img src="https://image.tmdb.org/t/p/w300<%= @movie.poster_path %>">
-</li>
-<li>
+<h1>
 	<%= @title %>
-</li>
-<li>
-	<%= @overview %>
-</li>
-<li>
-  	<%= @release %>
-</li>
-<li>
-  	<%= @rating %>
-</li>
-<li>
+</h1>
+<ul>Top Cast: <%= @cast.map(&:name).join (", ") %></ul>
+<ul>
+	Director: <%= @director.map(&:name).join (", ") %>
+</ul>
+<ul>
+	Overview: <%= @overview %>
+</ul>
+<ul>
+  	Release Date: <%= @release %>
+</ul>
+<ul>
+  	Rated <%= @rating %> out of 10
+</ul>
+<ul>
   	<%= @genres.map(&:name).join(", ") %>
-</li>
-<li>
+</ul>
+<ul>
 	<img src="https://image.tmdb.org/t/p/w300<%= @movie.poster_path %>">
-</li>
+</ul>
