@@ -12,4 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
+//= require masonry/jquery.masonry
 //= require_tree .
+
+$(document).ready(function() {
+	var listItems = $(".movie-title")
+	$(".movies-list").empty()
+
+	$(".movies-list").append(listItems)
+
+    $("#container").imagesLoaded(function() {
+	    $('#container').masonry({
+	        itemSelector: '.item',
+	        columnWidth: 70
+	    });
+    });
+})
