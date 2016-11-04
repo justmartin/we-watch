@@ -36,7 +36,7 @@ class SearchController < ApplicationController
       ["Romance", 10749],
       ["Science Fiction", 878],
       ["TV Movie", 10770],
-      ["Thriller", 52],
+      ["Thriller", 53],
       ["War", 10752],
       ["Western", 37]
     ]
