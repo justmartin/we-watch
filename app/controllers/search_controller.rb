@@ -5,12 +5,8 @@ class SearchController < ApplicationController
 
   def action
   end
-  
-  def search_by_title 
-    Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
 
-    @response = Tmdb::Search.movie(params[:title])
-
+  def options_for_genre
     @genres = [
       ["Action", 28], 
       ["Adventure", 12], 
@@ -32,6 +28,14 @@ class SearchController < ApplicationController
       ["War", 10752],
       ["Western", 37]
     ]
+  end
+  
+  def search_by_title 
+    Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
+
+    @response = Tmdb::Search.movie(params[:title])
+
+    options_for_genre
   
     render "home/index"
   end
@@ -40,27 +44,7 @@ class SearchController < ApplicationController
     Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
     @movies = Tmdb::Genre.movies(params[:genre]).results
 
-    @genres = [
-      ["Action", 28], 
-      ["Adventure", 12], 
-      ["Animation", 16], 
-      ["Comedy", 35], 
-      ["Crime", 80],
-      ["Documentary", 99], 
-      ["Drama", 18],
-      ["Family", 10751],
-      ["Fantasy", 14],
-      ["History", 36],
-      ["Horror", 27],
-      ["Music", 10402],
-      ["Mystery", 9648],
-      ["Romance", 10749],
-      ["Science Fiction", 878],
-      ["TV Movie", 10770],
-      ["Thriller", 53],
-      ["War", 10752],
-      ["Western", 37]
-    ]
+    options_for_genre
 
     render "home/index"
   end
@@ -70,27 +54,7 @@ class SearchController < ApplicationController
 
     @cast = Tmdb::Search.person(params[:actor])
 
-    @genres = [
-      ["Action", 28], 
-      ["Adventure", 12], 
-      ["Animation", 16], 
-      ["Comedy", 35], 
-      ["Crime", 80],
-      ["Documentary", 99], 
-      ["Drama", 18],
-      ["Family", 10751],
-      ["Fantasy", 14],
-      ["History", 36],
-      ["Horror", 27],
-      ["Music", 10402],
-      ["Mystery", 9648],
-      ["Romance", 10749],
-      ["Science Fiction", 878],
-      ["TV Movie", 10770],
-      ["Thriller", 53],
-      ["War", 10752],
-      ["Western", 37]
-    ]
+    options_for_genre
   
     render "home/index"
   end
@@ -100,27 +64,7 @@ class SearchController < ApplicationController
 
     @director = Tmdb::Search.person(params[:director])
 
-    @genres = [
-      ["Action", 28], 
-      ["Adventure", 12], 
-      ["Animation", 16], 
-      ["Comedy", 35], 
-      ["Crime", 80],
-      ["Documentary", 99], 
-      ["Drama", 18],
-      ["Family", 10751],
-      ["Fantasy", 14],
-      ["History", 36],
-      ["Horror", 27],
-      ["Music", 10402],
-      ["Mystery", 9648],
-      ["Romance", 10749],
-      ["Science Fiction", 878],
-      ["TV Movie", 10770],
-      ["Thriller", 53],
-      ["War", 10752],
-      ["Western", 37]
-    ]
+    options_for_genre
   
     render "home/index"
   end
