@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   get "/home" => "home#index"
 
-  get "/movie" => "movie#info"
-
   get "/search" => "search#action"
 
   post '/search-by-title' => "search#search_by_title"

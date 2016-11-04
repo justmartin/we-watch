@@ -16,8 +16,7 @@
       
     	<% if user_signed_in? %>
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
-	        <li class="active"><a href="/movie">Search<span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a href="/home">Home<span class="sr-only">(current)</span></a></li>
 	        <li><%= link_to "Account", edit_user_registration_path, :class => 'navbar-link' %></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
