@@ -1,10 +1,34 @@
 <div class="row">
 
-  <div class="col-md-12">
-  	<%= form_tag("/genre") do %>
+  <div class="col-md-3">
+  	<%= form_tag("/search-by-genre") do %>
   		<%= select_tag "genre", options_for_select(@genres), onchange: "this.form.submit()" %>
 		<% end %>
   </div>
+
+  <div class="col-md-3">
+		<%= form_tag("/search-by-title", method: "post") do %>
+			<%= label_tag("Title")%>
+			<%= text_field_tag(:title) %>
+			<%= submit_tag ("submit") %>
+		<% end %>
+	</div>
+
+	<div class="col-md-3">
+		<%= form_tag("/search-by-actor", method: "post") do %>
+			<%= label_tag("Actors")%>
+			<%= text_field_tag(:actor) %>
+			<%= submit_tag ("submit") %>
+		<% end %>
+	</div>
+
+	<div class="col-md-3">
+		<%= form_tag("/search-by-director", method: "post") do %>
+			<%= label_tag("Director")%>
+			<%= text_field_tag(:director) %>
+			<%= submit_tag ("submit") %>
+		<% end %>
+	</div>
 
 </div>
 
@@ -37,4 +61,33 @@
 			</div>
 		<% end %>
 	</div>
+
+	<% if @response %>
+		<ul>
+			<% @response.results.each do |result| %>
+				<li><%= link_to result.title, movie_show_path(result.id) %></li>
+			<% end %>
+		</ul>
+	<% end %>
+
+	<% if @cast %>
+		<ul>
+			<% @cast.results.each do |result| %>
+				<% result.known_for.each do |movie| %>
+					<li><%= link_to movie.title, movie_show_path(movie.id) %></li>
+				<% end %>
+		    <% end %>
+		</ul>
+	<% end %>
+
+	<% if @director %>
+		<ul>
+			<% @director.results.each do |result| %>
+				<% result.known_for.each do |movie| %>
+					<li><%= link_to movie.title, movie_show_path(movie.id) %></li>
+					<% end %>
+			<% end %>
+		</ul>
+	<% end %>
+
 </div>
