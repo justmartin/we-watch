@@ -53,41 +53,47 @@
 						<!-- <%= link_to movie.title, movie_show_path(movie.id) %> -->
 						<a href="/movies/<%= movie.id %>">
 							<% unless movie.poster_path.nil? %>
-							<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>">
+								<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>">
 							<% end %>
 						</a>
 					</div>
 				<% end %>
 			</div>
 		<% end %>
-	</div>
 
-	<% if @response %>
-		<ul>
-			<% @response.results.each do |result| %>
-				<li><%= link_to result.title, movie_show_path(result.id) %></li>
+		<% if @titles %>
+			<% @titles.results.each do |result| %>
+				<a href="/movies/<%= result.id %>">
+					<% unless result.poster_path.nil? %>
+						<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= result.poster_path %>">
+					<% end %>
+				</a>
 			<% end %>
-		</ul>
-	<% end %>
+		<% end %>
 
-	<% if @cast %>
-		<ul>
+		<% if @cast %>
 			<% @cast.results.each do |result| %>
 				<% result.known_for.each do |movie| %>
-					<li><%= link_to movie.title, movie_show_path(movie.id) %></li>
+						<a href="/movies/<%= movie.id %>">
+							<% unless movie.poster_path.nil? %>
+								<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>">
+							<% end %>
+						</a>
 				<% end %>
-		    <% end %>
-		</ul>
-	<% end %>
+			 <% end %>
+		<% end %>
 
-	<% if @director %>
-		<ul>
-			<% @director.results.each do |result| %>
-				<% result.known_for.each do |movie| %>
-					<li><%= link_to movie.title, movie_show_path(movie.id) %></li>
+		<% if @director %>
+				<% @director.results.each do |result| %>
+					<% result.known_for.each do |movie| %>
+						<a href="/movies/<%= movie.id %>">
+							<% unless movie.poster_path.nil? %>
+								<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>">
+							<% end %>
+						</a>
 					<% end %>
-			<% end %>
-		</ul>
-	<% end %>
+				<% end %>
+		<% end %>
 
+	</div>
 </div>

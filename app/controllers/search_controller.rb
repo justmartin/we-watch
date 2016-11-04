@@ -33,7 +33,7 @@ class SearchController < ApplicationController
   def search_by_title 
     Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
 
-    @response = Tmdb::Search.movie(params[:title])
+    @titles = Tmdb::Search.movie(params[:title])
 
     options_for_genre
   
