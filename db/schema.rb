@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20161104203621) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.text     "favorites_movie_ids"
     t.text     "favorite_movie_ids"
   end
 
