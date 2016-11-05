@@ -26,8 +26,10 @@ class HomeController < ApplicationController
 
     Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
 
-    @favorites = current_user.favorite_movie_ids.map do |id|
-      Tmdb::Movie.detail(id)
+    if current_user
+      @favorites = current_user.favorite_movie_ids.map do |id|
+        Tmdb::Movie.detail(id)
+      end
     end
 
   end
