@@ -11,10 +11,10 @@ class WatchedMoviesController < ApplicationController
   	Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
 
   	if current_user.watched_movie_ids.include?(params[:movie_id]) == false
-  		current_user.watched_movie_ids << params[:movie_id]
-  	end 
+      current_user.watched_movie_ids << params[:movie_id]
+    	current_user.save
+    end 
 
-  	current_user.save
 
   	@movie = Tmdb::Movie.detail(params[:movie_id].to_i)
 
