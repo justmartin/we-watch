@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   serialize :favorite_movie_ids, Array
+  serialize :watched_movie_ids, Array
 end

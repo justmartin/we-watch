@@ -20,4 +20,8 @@ Rails.application.routes.draw do
 
   post '/favorite-movies/add' => "favorite_movies#add"
 
+  get '/watched-movies/add' => "watched_movies#perform"
+
+  post '/watched-movies/add' => "watched_movies#add"
+
 end
