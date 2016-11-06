@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_scope(:user) { root "devise/sessions#new" }
 
-  get "/home" => "index#home"
+  get "/home" => "home#index"
   
   get "/search" => "search#action"
 
