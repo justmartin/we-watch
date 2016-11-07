@@ -32,7 +32,7 @@
   	Rated <%= @rating %> out of 10
 </ul>
 <ul>
-  	<%= @genres.map(&:name).join(", ") %>
+  	Genre: <%= @genres.map(&:name).join(", ") %>
 </ul>
 <ul>
 	<img src="https://image.tmdb.org/t/p/w300<%= @movie.poster_path %>">
