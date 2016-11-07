@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   def index
+    Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
 
     @genres = [
       ["Action", 28], 
@@ -23,6 +24,16 @@ class HomeController < ApplicationController
       ["War", 10752],
       ["Western", 37]
     ]
+
+    if current_user
+      @favorites = current_user.favorite_movie_ids.map do |id|
+        Tmdb::Movie.detail(id)
+      end
+
+      @watched = current_user.watched_movie_ids.map do |id|
+        Tmdb::Movie.detail(id)
+      end
+    end
 
   end
 

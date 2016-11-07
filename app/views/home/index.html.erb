@@ -1,21 +1,75 @@
 <div class="row">
 
-  <div class="col-md-12">
-  	<%= form_tag("/genre") do %>
+  <div class="col-md-3">
+  	<%= form_tag("/search-by-genre") do %>
   		<%= select_tag "genre", options_for_select(@genres), onchange: "this.form.submit()" %>
 		<% end %>
   </div>
+
+  <div class="col-md-3">
+		<%= form_tag("/search-by-title", method: "post") do %>
+			<%= label_tag("Title")%>
+			<%= text_field_tag(:title) %>
+			<%= submit_tag ("submit") %>
+		<% end %>
+	</div>
+
+	<div class="col-md-3">
+		<%= form_tag("/search-by-actor", method: "post") do %>
+			<%= label_tag("Actors")%>
+			<%= text_field_tag(:actor) %>
+			<%= submit_tag ("submit") %>
+		<% end %>
+	</div>
+
+	<div class="col-md-3">
+		<%= form_tag("/search-by-director", method: "post") do %>
+			<%= label_tag("Director")%>
+			<%= text_field_tag(:director) %>
+			<%= submit_tag ("submit") %>
+		<% end %>
+	</div>
 
 </div>
 
 <div class="row">
 	<h1>Favorites</h1>
 
+	<div id="container" class="transitions-enabled">
+		<% if @favorites %>
+			<div class="favorite-movies">
+				<% @favorites.each do |favorite| %>
+					<div class="favorite-movie">
+						<a href="/movies/<%= favorite.id %>">
+							<% unless favorite.poster_path.nil? %>
+								<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= favorite.poster_path %>">
+							<% end %>
+						</a>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
 </div>
 
 <div class="row">
-	<h1>Recently Watched</h1>
+	<h1>Watched</h1>
 
+	<div id="container" class="transitions-enabled">
+		<% if @watched %>
+			<div class="watched-movies">
+				<% @watched.each do |watch| %>
+					<div class="watched-movie">
+						<a href="/movies/<%= watch.id %>">
+							<% unless watch.poster_path.nil? %>
+								<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= watch.poster_path %>">
+							<% end %>
+						</a>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
 </div>
 
 <div class="row">
@@ -24,17 +78,51 @@
 	<div id="container" class="transitions-enabled">
 		<% if @movies %>
 			<div class="movies-list">
-				<%= @movies.first(20).each do |movie| %>
+				<% @movies.first(20).each do |movie| %>
 					<div class="movie-title">
-						<!-- <%= link_to movie.title, movie_show_path(movie.id) %> -->
 						<a href="/movies/<%= movie.id %>">
 							<% unless movie.poster_path.nil? %>
-							<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>">
+								<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>">
 							<% end %>
 						</a>
 					</div>
 				<% end %>
 			</div>
 		<% end %>
+
+		<% if @titles %>
+			<% @titles.results.each do |result| %>
+				<a href="/movies/<%= result.id %>">
+					<% unless result.poster_path.nil? %>
+						<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= result.poster_path %>">
+					<% end %>
+				</a>
+			<% end %>
+		<% end %>
+
+		<% if @cast %>
+			<% @cast.results.each do |result| %>
+				<% result.known_for.each do |movie| %>
+						<a href="/movies/<%= movie.id %>">
+							<% unless movie.poster_path.nil? %>
+								<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>">
+							<% end %>
+						</a>
+				<% end %>
+			 <% end %>
+		<% end %>
+
+		<% if @director %>
+				<% @director.results.each do |result| %>
+					<% result.known_for.each do |movie| %>
+						<a href="/movies/<%= movie.id %>">
+							<% unless movie.poster_path.nil? %>
+								<img class="item <%= ['w2', 'h2'].sample %>" src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>">
+							<% end %>
+						</a>
+					<% end %>
+				<% end %>
+		<% end %>
+
 	</div>
 </div>
