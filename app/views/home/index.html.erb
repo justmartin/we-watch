@@ -35,7 +35,7 @@
 <div class="row">
 	<h1>Favorites</h1>
 
-	<div id="container" class="transitions-enabled">
+	<div id="favorites-container" class="transitions-enabled">
 		<% if @favorites %>
 			<div class="favorite-movies">
 				<% @favorites.each do |favorite| %>
@@ -55,7 +55,7 @@
 <div class="row">
 	<h1>Watched</h1>
 
-	<div id="container" class="transitions-enabled">
+	<div id="watched-container" class="transitions-enabled">
 		<% if @watched %>
 			<div class="watched-movies">
 				<% @watched.each do |watch| %>
@@ -75,7 +75,7 @@
 <div class="row">
 	<h1>Results</h1>
 
-	<div id="container" class="transitions-enabled">
+	<div id="results-container" class="transitions-enabled">
 		<% if @movies %>
 			<div class="movies-list">
 				<% @movies.first(20).each do |movie| %>
