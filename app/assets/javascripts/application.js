@@ -27,10 +27,24 @@ $(document).ready(function() {
 	$(".watched-movies").empty()
 	$(".watched-movies").append(watchedMovies)
 
-    $("#container").imagesLoaded(function() {
-	    $('#container').masonry({
-	        itemSelector: '.item',
-	        columnWidth: 70
-	    });
+  $("#favorites-container").imagesLoaded(function() {
+    $("#favorites-container").masonry({
+        itemSelector: '.item',
+        columnWidth: 70
     });
+  });
+
+  $("#watched-container").imagesLoaded(function() {
+    $("#watched-container").masonry({
+        itemSelector: '.item',
+        columnWidth: 70
+    });
+  });
+
+  $("#results-container").imagesLoaded(function() {
+    $("#results-container").masonry({
+        itemSelector: '.item',
+        columnWidth: 70
+    });
+  });
 })
