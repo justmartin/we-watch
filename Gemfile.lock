@@ -159,6 +159,8 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2016.8)
       tzinfo (>= 1.0.0)
+    uglifier (3.0.3)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -187,6 +189,7 @@ DEPENDENCIES
   sqlite3
   themoviedb-api
   tzinfo-data
+  uglifier
   web-console (~> 2.0)
 
 BUNDLED WITH
