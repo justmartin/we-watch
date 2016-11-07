@@ -10,10 +10,12 @@ Copy the URL
 
 Open GitBash or your terminal and cd into the directory location where you'd like the cloned file to live
 
-Enter the command 
+Enter the command
+
 '''
 git clone (paste the copied/clone URL here) 
 '''
+
 and press enter
 
 You've successfully created a local clone of the repository and can now make changes and submit pull requests to add your changes to the master.
