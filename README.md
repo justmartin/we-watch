@@ -2,6 +2,8 @@
 
 The purpose of this site is to help users find a movie to watch based on their interests. The user can search by genre, favorite actor, title, or director. The user can also add movies to their favorites as well as watched category which would eventually filter the choices they're given so only movies they haven't watched appear. 
 
+Heroku Link: https://we-watch-app.herokuapp.com/
+
 ### To access the code:
 
 On GitHub select the green button 'Clone or Download' on the main page of the repository
