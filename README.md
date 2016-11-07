@@ -12,9 +12,9 @@ Open GitBash or your terminal and cd into the directory location where you'd lik
 
 Enter the command
 
-'''
+```
 git clone (paste the copied/clone URL here) 
-'''
+```
 
 and press enter
 
