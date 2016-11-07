@@ -17,10 +17,15 @@
 //= require_tree .
 
 $(document).ready(function() {
-	var listItems = $(".movie-title")
-	$(".movies-list").empty()
 
-	$(".movies-list").append(listItems)
+	var favoriteMovies = $(".favorite-movie")
+	var watchedMovies = $(".watched-movie")
+
+	$(".favorite-movies").empty()
+	$(".favorite-movies").append(favoriteMovies)
+
+	$(".watched-movies").empty()
+	$(".watched-movies").append(watchedMovies)
 
     $("#container").imagesLoaded(function() {
 	    $('#container').masonry({

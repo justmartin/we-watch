@@ -1,3 +1,20 @@
+<% if current_user.favorite_movie_ids.include?(params[:id]) == false %>
+	
+	<form action="/favorite-movies/add" method="post">
+		<input type="hidden" name="movie_id" value="<%= @movie.id %>">
+		<button type="submit">Add to Favorites</button>
+	</form>
+
+<% end %>
+<% if current_user.watched_movie_ids.include?(params[:id]) == false %>
+	
+	<form action="/watched-movies/add" method="post">
+		<input type="hidden" name="movie_id" value="<%= @movie.id %>">
+		<button type="submit">Add to Watched</button>
+	</form>
+
+<% end %>
+
 <h1>
 	<%= @title %>
 </h1>
