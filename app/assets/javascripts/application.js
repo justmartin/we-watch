@@ -17,15 +17,34 @@
 //= require_tree .
 
 $(document).ready(function() {
-	var listItems = $(".movie-title")
-	$(".movies-list").empty()
 
-	$(".movies-list").append(listItems)
+	var favoriteMovies = $(".favorite-movie")
+	var watchedMovies = $(".watched-movie")
 
-    $("#container").imagesLoaded(function() {
-	    $('#container').masonry({
-	        itemSelector: '.item',
-	        columnWidth: 70
-	    });
+	$(".favorite-movies").empty()
+	$(".favorite-movies").append(favoriteMovies)
+
+	$(".watched-movies").empty()
+	$(".watched-movies").append(watchedMovies)
+
+  $("#favorites-container").imagesLoaded(function() {
+    $("#favorites-container").masonry({
+        itemSelector: '.item',
+        columnWidth: 70
     });
+  });
+
+  $("#watched-container").imagesLoaded(function() {
+    $("#watched-container").masonry({
+        itemSelector: '.item',
+        columnWidth: 70
+    });
+  });
+
+  $("#results-container").imagesLoaded(function() {
+    $("#results-container").masonry({
+        itemSelector: '.item',
+        columnWidth: 70
+    });
+  });
 })

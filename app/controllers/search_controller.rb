@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   require "uri"
   require "json"
 
-  before_action :options_for_genre, :set_api_key
+  before_action :options_for_genre, :set_api_key, :favorites_watched
 
   def action
   end
@@ -11,7 +11,7 @@ class SearchController < ApplicationController
   def search_by_title 
     @response = Tmdb::Search.movie(params[:title])
   
-    render "movie/info"
+    render "home/index"
   end
   
   def search_by_title 
@@ -22,6 +22,7 @@ class SearchController < ApplicationController
 
   def search_by_genre
     @movies = Tmdb::Genre.movies(params[:genre]).results
+
 
     render "home/index"
   end
@@ -66,6 +67,18 @@ class SearchController < ApplicationController
 
   def set_api_key
         Tmdb::Api.key("1ad5d2d6fd2891066add1b5d16fe125b")
+  end
+
+  def favorites_watched
+     if current_user
+      @favorites = current_user.favorite_movie_ids.map do |id|
+        Tmdb::Movie.detail(id)
+      end
+
+      @watched = current_user.watched_movie_ids.map do |id|
+        Tmdb::Movie.detail(id)
+      end
+    end
   end
 
 end

@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  root "home#index"
+  devise_scope(:user) { root "devise/sessions#new" }
 
+  get "/home" => "home#index"
+  
   get "/search" => "search#action"
 
   post '/search-by-title' => "search#search_by_title"
